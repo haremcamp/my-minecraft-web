@@ -1,1 +1,35 @@
-
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survival Realms - Minecraft Server</title>
+    <style>
+        :root { --accent: #55ff55; --accent-glow: rgba(85, 255, 85, 0.4); --bg-overlay: rgba(10, 20, 10, 0.85); --text: #e0f0e0; --panel: #1a2a1a; }
+        body { font-family: sans-serif; background-color: #050a05; color: var(--text); margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; text-align: center; }
+        .container { background: var(--panel); padding: 3rem; border-radius: 20px; border: 2px solid var(--accent); box-shadow: 0 0 20px var(--accent-glow); max-width: 500px; width: 90%; }
+        h1 { font-size: 3rem; margin: 0; color: var(--accent); text-shadow: 0 0 15px var(--accent-glow); }
+        .ip-box { background: #000; padding: 20px; border-radius: 10px; cursor: pointer; transition: 0.3s; border: 1px dashed #444; margin: 20px 0; }
+        .ip-box:hover { border-color: var(--accent); transform: scale(1.02); }
+        .btn { background: var(--accent); border: none; padding: 12px 30px; border-radius: 5px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SURVIVAL</h1>
+        <p>ยินดีต้อนรับสู่เซิร์ฟเวอร์ของเรา!</p>
+        <div class="ip-box" onclick="copyIP()">
+            <div style="font-size: 0.8rem; color: #888;">คลิกเพื่อคัดลอก IP</div>
+            <div style="font-size: 1.5rem; font-weight: bold;">play.yourserver.com</div>
+        </div>
+        <button class="btn" onclick="copyIP()">คัดลอก IP ไปเข้าเกม</button>
+    </div>
+    <script>
+        function copyIP() {
+            const ip = "play.yourserver.com"; // เปลี่ยนเป็น IP ของคุณ
+            navigator.clipboard.writeText(ip);
+            alert("คัดลอก IP: " + ip + " แล้ว!");
+        }
+    </script>
+</body>
+</html>
