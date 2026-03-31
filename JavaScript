@@ -1,1 +1,29 @@
+<script>
+    // 1. ฟังก์ชันคัดลอก IP
+    function copyIP() {
+        const ip = "play.hypixel.net"; // *** เปลี่ยนเป็น IP จริงของคุณ ***
+        navigator.clipboard.writeText(ip);
+        alert("คัดลอก IP: " + ip + " แล้ว! เข้าเกมได้เลย");
+    }
 
+    // 2. ฟังก์ชันดึงจำนวนผู้เล่นจาก API (โชว์คนออนไลน์จริง)
+    async function getOnlinePlayers() {
+        const ip = "play.hypixel.net"; // *** เปลี่ยนเป็น IP จริงของคุณ ***
+        try {
+            const response = await fetch(`https://api.mcsrvstat.us/2/${ip}`);
+            const data = await response.json();
+            
+            if(data.online) {
+                // ถ้าเซิร์ฟเปิดอยู่ ให้ใส่จำนวนคนออนไลน์ลงใน id="player-count"
+                document.getElementById('player-count').innerText = data.players.online + " / " + data.players.max;
+            } else {
+                document.getElementById('player-count').innerText = "Offline";
+            }
+        } catch (error) {
+            console.log("ไม่สามารถดึงข้อมูลได้");
+        }
+    }
+
+    // สั่งให้ทำงานทันทีที่เปิดเว็บ
+    getOnlinePlayers();
+</script>
